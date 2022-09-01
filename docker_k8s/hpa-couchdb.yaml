@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-couchdb
+spec:
+  minReplicas: 3
+  maxReplicas: 9
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: couchdb
+  targetCPUUtilizationPercentage: 60

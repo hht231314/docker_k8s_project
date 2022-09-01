@@ -1,0 +1,66 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: couchdb
+  labels:
+    app: couch
+spec:
+  replicas: 3
+  serviceName: "couch-service"
+  selector:
+    matchLabels:
+      app: couch
+  template:
+    metadata:
+      labels:
+        app: couch # pod label
+    spec:
+      containers:
+      - name: couchdb
+        image: couchdb:2.3.1
+        imagePullPolicy: "Always"
+        env:
+        - name: NODE_NETBIOS_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: NODENAME
+          value: $(NODE_NETBIOS_NAME).couch-service # FQDN in vm.args
+        - name: COUCHDB_USER
+          value: admin
+        - name: COUCHDB_PASSWORD
+          value: admin
+        - name: COUCHDB_SECRET
+          value: b1709267
+        - name: ERL_FLAGS
+          value: "-name couchdb@$(NODENAME)"
+        - name: ERL_FLAGS
+          value: "-setcookie b1709267" #   the “password” used when nodes connect to each other.
+        ports:
+        - name: couchdb
+          containerPort: 5984
+        - name: epmd
+          containerPort: 4369
+        - containerPort: 9100
+        resources:
+         requests:
+           memory: "64Mi"
+           cpu: "250m"
+         limits:
+           memory: "128Mi"
+           cpu: "250m"
+        volumeMounts:
+          - name: couch-pvc
+            mountPath: /opt/couchdb/data
+  volumeClaimTemplates:
+  - metadata:
+      name: couch-pvc
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
+      selector:
+        matchLabels:
+          volume: couch-volume

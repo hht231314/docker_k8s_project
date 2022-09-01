@@ -1,0 +1,20 @@
+$	kubectl set image deployment <deployment-name> <container-name>=<new-image>
+-----------------
+kubectl set image deployment shop-on-offline shop-on-offline=b1709267/shop-on-offline:2.1.2
+------------------Kiem tra update
+$	kubectl rollout status deploy <deployment-name>
+------------------
+kubectl rollout status deploy shop-on-offline
+-------------------
+$	kubectl rollout undo deployment <deployment-name> --to-revision=<old_revision>
+---------------------
+kubectl rollout history deploy shop-on-offline
+-----------------------
+kubectl rollout undo deployment shop-on-offline --to-revision=1
+--------------------------------
+---------------------------
+add-cors-to-couchdb http://admin:admin@192.168.1.100:30984/
+------------------------------------------
+curl http://admin:admin@127.0.0.1:5984/_membership
+-----------------------------
+curl -X POST -H "Content-Type: application/json" http://admin:admin@127.0.0.1:5984/_cluster_setup -d '{"action": "add_node", "host":"couchdb-1.couch-service", "port": 5984, "username": "admin", "password":"admin"}'
