@@ -1,9 +1,9 @@
 > ## GIỚI THIỆU ĐỀ TÀI AUTOSCALING WEB APPLICATION WITH KUBERNETES
 
 ---------------------------------------------------------------------------------------------------------------------------------------
-<sup> Xem Video Demo: [tại đây](https://drive.google.com/drive/folders/1A7YhtJBNtjBSUF-JNhmN5O-ulbRX6gQY?usp=sharing) </sup>
+<sup> Demo phần chính (đã tua nhanh): [tại đây](https://drive.google.com/file/d/1shEI7kFjrFlJoUj_KfXXO-9xJzfUEJhx/view?usp=sharing) </sup>
 <br><sup> Full quá trình cài đặt (đã tua nhanh): [tại đây](https://drive.google.com/file/d/1NUq_zmT64qH7WNe3ovXiGi2vCUiTOXSg/view?usp=sharing) </sup>
-<br><sup> Demo phần chính (đã tua nhanh): [tại đây](https://drive.google.com/file/d/1shEI7kFjrFlJoUj_KfXXO-9xJzfUEJhx/view?usp=sharing) </sup>
+<br><sup> Folder Video Demo: [tại đây](https://drive.google.com/drive/folders/1A7YhtJBNtjBSUF-JNhmN5O-ulbRX6gQY?usp=sharing) </sup>
 ---------------------------------------------------------------------------------------------------------------------------------------
 <sup>***Note:
 <br>Xin phép không để source code Web App `Shop-on-offline` tại đây vì đề tài này có `2 phân hệ` và đó là `phân hệ 1`, đề tài của 1 bạn khác.
